@@ -9,7 +9,7 @@ interface FormInfo {
 type AuthContext = "Registration" | "Login";
 
 export async function Authentication(formInfo : FormInfo, context : AuthContext){
-  let response : Response | null;
+  let response : Response | null = null
   if(context == "Registration"){
     response = await fetch('https://localhost:5000/users/register',{
       method: "POST",
