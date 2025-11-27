@@ -4,7 +4,7 @@ import Image from 'next/image'
 import fetchImage from './fetchImage.tsx'
 import { Button } from "@/components/ui/button"
 import path from 'path'
-import { supabase } from '../../app/page.tsx'
+import supabase from '.../../config/supabase.js'
 import '../../app/globals.css'
 import {
   Card,

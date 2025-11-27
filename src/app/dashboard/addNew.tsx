@@ -1,6 +1,6 @@
 "use client"
 import getJWT from './getJWT.tsx'
-import { supabase}  from '../../app/page.tsx'
+import supabase from '../../config/supabase.js'
 import { Button } from "@/components/ui/button"
 import getUser from '../auth/[type]/getCookie.tsx'
 import { useRef, useState, useEffect } from 'react'
