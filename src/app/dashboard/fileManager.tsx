@@ -62,9 +62,9 @@ interface ObjectProps{
   setQuery : React.Dispatch<React.SetStateAction<string>>;
 }
 
-export default function FileManager({reload, setReload, relativePath, setRelativePath, query, setQuery}){
+export default function FileManager({reload, setReload, relativePath, setRelativePath, query, setQuery} : ObjectProps){
   const [displayMode, setDisplayMode] = useState(false)
-  const displayImage = useRef(null)
+  const displayImage = useRef<HTMLImageElement : null>(null) 
   const [allFiles, setAllFiles] = useState([])
   const [renderedFiles, setRenderedFiles] = useState([])
   const [, offlineReload] = useState(0)
@@ -95,7 +95,7 @@ export default function FileManager({reload, setReload, relativePath, setRelativ
 
   //search query thingy
   useEffect(()=>{
-    setAllFiles(prev => prev.map(e => ({...e, display: e.name.startsWith(query)})))
+    setAllFiles(prev => prev.map((e : any) => ({...e, display: e.name.startsWith(query)})))
     offlineReload(pr => pr+1)
   },[query])
 
@@ -116,7 +116,7 @@ export default function FileManager({reload, setReload, relativePath, setRelativ
     )()
   },[allFiles, selectedArray])
   
-  async function handleDelete(e : any){
+  async function handleDelete(e : React.MouseEvent<HTMLButtonElement>){
     let location = e.target.dataset.path
     let jwt = await getJWT()
     let response = await fetch(`http://localhost:5000/crud/`, {
@@ -133,14 +133,14 @@ export default function FileManager({reload, setReload, relativePath, setRelativ
     }
   }
 
-  function handleUnselect(e : any){
+  function handleUnselect(e : React.MouseEvent<HTMLDivElement>){
     if (e.target.dataset.name == "FileManager"){
       setSelectedArray(p => [])
       offlineReload(e => e+1)
     }
   }
 
-  function handleSelected(e : any){
+  function handleSelected(e : React.MouseEvent<HTMLDivElement>){
     let name = e.target.dataset.name
     let index = selectedArray.indexOf(name)
     if(index > -1){
@@ -151,7 +151,7 @@ export default function FileManager({reload, setReload, relativePath, setRelativ
     offlineReload(x => x+1)
   }
   
-  async function handledDoubleClick(e : any){
+  async function handledDoubleClick(e : React.MouseEvent<HTMLDivElement>){
     let name = e.target.dataset.name
     let location = e.target.dataset.path
     //FIGURE OUT NAMING INCONSISTENCIES
