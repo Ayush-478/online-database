@@ -6,8 +6,14 @@ import Link from "next/link";
 import Image from 'next/image'
 import { Input } from "@/components/ui/input"
 import { Search, House, Info, Users, PartyPopper } from 'lucide-react';
-export default function NavMenu({query, setQuery}){
-  function handleSearch(e){
+
+interface ObjectProps{
+  query : string;
+  setQuery : React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function NavMenu({query, setQuery} : ObjectProps){
+  function handleSearch(e : any){
     setQuery(e.target.value)
   }
   return(
