@@ -64,7 +64,7 @@ interface ObjectProps{
 
 export default function FileManager({reload, setReload, relativePath, setRelativePath, query, setQuery} : ObjectProps){
   const [displayMode, setDisplayMode] = useState(false)
-  const displayImage = useRef<HTMLImageElement : null>(null) 
+  const displayImage = useRef<HTMLImageElement | null>(null) 
   const [allFiles, setAllFiles] = useState([])
   const [renderedFiles, setRenderedFiles] = useState([])
   const [, offlineReload] = useState(0)
