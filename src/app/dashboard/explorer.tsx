@@ -96,7 +96,7 @@ export default function Explorer( {query, setQuery} : ChildProps ){
         </Tooltip>
           <div className="NEWFILEADDER-TOGGLE flex">
 
-          <DropdownMenu className= " hover:bg-neutral-700">
+          <DropdownMenu>
             <DropdownMenuTrigger className="font-bold text-lg h-[2.3rem] outline-none border-none w-[5rem] hover:bg-neutral-800 bg-neutral-800 pl-3 pr-3 rounded mt-auto mb-auto">New</DropdownMenuTrigger>
             <DropdownMenuContent className="bg-neutral-700 outline-none border-none hover:bg-neutral-700">
                 <div className="w-[7rem] h-[7.75rem] bg-neutral-700 flex flex-col items-center justify-around">
