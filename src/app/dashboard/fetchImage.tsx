@@ -1,7 +1,7 @@
 
-import getJWT from '../dashboard/getJWT.tsx'
+import getJWT from '../dashboard/getJWT'
 
-export default async function fetchImage(location){
+export default async function fetchImage(location : string){
   const jwt = await getJWT()
   let path = location.replace(/[/]/g, "_")
   let response = await fetch(`http://localhost:5000/crud/image/${path}`, {
