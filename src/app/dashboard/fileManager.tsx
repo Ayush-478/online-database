@@ -109,9 +109,9 @@ export default function FileManager({reload, setReload, relativePath, setRelativ
       for (const file of allFiles) {
         if (file.display) {
           if (file.type === "folder") {
-            files.push(makeFolderElement(file.type, file.name, file.path));
+            files.push(makeFolderElement(file.type, file.name, file.path, false));
           } else {
-            files.push(await makeFileElement(file.type, file.name, file.path));
+            files.push(await makeFileElement(file.type, file.name, file.path, false));
           }
         }
       }
