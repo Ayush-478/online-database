@@ -40,7 +40,7 @@ export default function Explorer( {query, setQuery} : ChildProps ){
       return(
         <>
         <h4 className={ancestorsClass} data-name = {e} onClick = {(e : React.MouseEvent<HTMLHeadingElement>) => {
-           const target = event.currentTarget;
+          const target = e.currentTarget;
           nav(target.dataset.name!, null)}}>
           {e}
         </h4>)
