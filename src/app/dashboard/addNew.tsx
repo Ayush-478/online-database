@@ -1,8 +1,8 @@
 "use client"
-import getJWT from './getJWT.tsx'
+import getJWT from './getJWT'
 import supabase from '../../config/supabase.js'
 import { Button } from "@/components/ui/button"
-import getUser from '../auth/[type]/getCookie.tsx'
+import getUser from '../auth/[type]/getCookie'
 import { useRef, useState, useEffect } from 'react'
 import {
   DropdownMenu,
@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 export default function AddNew({setReload, relativePath}){
 
-  const uploadFile = useRef(null)
+  const uploadFile = useRef(null) as any
 
   const getTypeJSON = {
     doc: {type: "docs"},
@@ -65,7 +65,7 @@ export default function AddNew({setReload, relativePath}){
   }
 
   async function handleNewFolder(){
-    const jwt = await getJWT()
+    const jwt = await getJWT() as string
     let response = await fetch("http://localhost:5000/crud/newfolder", {
     method : "POST",
     body: JSON.stringify({location : relativePath}),
@@ -75,7 +75,7 @@ export default function AddNew({setReload, relativePath}){
       "Accept" : "application/json"
     },
     credentials : "include",
-    })
+    }) as Response
     if (response.ok){
       setReload(true)
     }
