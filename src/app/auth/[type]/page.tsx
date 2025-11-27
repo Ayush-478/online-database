@@ -3,7 +3,7 @@ import "../../globals.css";
 import Form from "./form";
 import Link from "next/link";
 import { useSearchParams } from 'next/navigation'
-import {sendContext} from './http.tsx'
+import {sendContext} from './http'
 let context;
 
 export default async function Interface({params,}:{params : Promise<{ type : string}>}) {
