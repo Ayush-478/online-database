@@ -1,4 +1,4 @@
-import getJWT from './getJWT.tsx'
+import getJWT from './getJWT'
 
 export default async function getFileTree(){
   const jwt = await getJWT()
