@@ -39,7 +39,9 @@ export default function Explorer( {query, setQuery} : ChildProps ){
     let eleArray = pathArray.map((e : any)=>{
       return(
         <>
-        <h4 className={ancestorsClass} data-name = {e} onClick = {(e : React.MouseEvent<HTMLHeadingElement>) => {nav(e.target.dataset.name, null)}}>
+        <h4 className={ancestorsClass} data-name = {e} onClick = {(e : React.MouseEvent<HTMLHeadingElement>) => {
+           const target = event.currentTarget;
+          nav(target.dataset.name!, null)}}>
           {e}
         </h4>)
       <Separator className="ml-[0.25rem]" orientation="vertical"></Separator></>
