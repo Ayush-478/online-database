@@ -58,6 +58,7 @@ export default function Explorer( {query, setQuery} : ChildProps ){
       if(name){
         let index = pathArray.indexOf(name)
         pathArray.splice(index+1)
+        let str = ""
         pathArray.forEach((e : string)=> {str = path.join(str, e)})
         setRelativePath(str)
         setReload(true)
