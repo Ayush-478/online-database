@@ -121,7 +121,7 @@ export default function AddNew({ setReload, relativePath} : ChildProps ){
         const { data, error } = await supabase.storage.from('user-data').remove([dirPath])
         throw new Error(`File upload was hella unsuccessful, res.code : ${res.status}`)
       }
-    }catch(err){
+    }catch(err : any){
       console.log(err.message) //Make this toast later
     }
   }
