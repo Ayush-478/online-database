@@ -7,8 +7,8 @@ import { redirect, RedirectType } from 'next/navigation'
 
 export default function Form(props : any) {
 
-  const nameRef = useRef<HTMLInputElement>()
-  const passRef = useRef<HTMLInputElement>()
+  const nameRef = useRef<any>()
+  const passRef = useRef<any>()
   const [formOutput, setFormOutput] = useState<string | null>(null)
 
   async function handleSubmit(){      //HANDLE FORM VALIDATION
