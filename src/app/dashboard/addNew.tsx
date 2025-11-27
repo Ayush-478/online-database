@@ -68,7 +68,7 @@ export default function AddNew({ setReload, relativePath} : ChildProps ){
     html: {type: "code"},
     json: {type: "code"},
     xml: {type: "code"}
-  }
+  } as const
 
   async function handleNewFolder(){
     const jwt = await getJWT()
@@ -90,7 +90,7 @@ export default function AddNew({ setReload, relativePath} : ChildProps ){
   async function handleFileUpload(e : any){
     try{
       const file = e.target.files[0]
-      const extension = file.name.split(".").pop().toLowerCase();
+      const extension = file.name.split(".").pop().toLowerCase() as keyof typeof getTypeJSON;
       if(!file || !Object.keys(getTypeJSON).includes(extension)){
         throw new Error("File type not allowed.")}
       const jwt = await getJWT()
