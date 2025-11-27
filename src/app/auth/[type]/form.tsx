@@ -12,7 +12,7 @@ export default function Form(props : any) {
   const [formOutput, setFormOutput] = useState(null)
 
   async function handleSubmit(){      //HANDLE FORM VALIDATION
-    let response = await Authentication({username : nameRef.current.value, pass : passRef.current.value}, props.context)
+    let response = await Authentication({username : nameRef.current!.value, pass : passRef.current!.value}, props.context)
     setFormOutput(response.message)
     if (response.ok){
       redirect('../../../', RedirectType.push)
