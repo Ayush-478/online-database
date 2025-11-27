@@ -9,7 +9,7 @@ export default function Form(props : any) {
 
   const nameRef = useRef()
   const passRef = useRef()
-  const [formOutput, setFormOutput] = useState(null)
+  const [formOutput, setFormOutput] = useState<string | null>(null)
 
   async function handleSubmit(){      //HANDLE FORM VALIDATION
     if(!nameRef.current || !passRef.current){
