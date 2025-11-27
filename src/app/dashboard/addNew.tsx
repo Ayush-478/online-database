@@ -20,7 +20,7 @@ interface ChildProps{
 
 export default function AddNew({ setReload, relativePath} : ChildProps ){
 
-  const uploadFile = useRef(null)
+  const uploadFile = useRef(null) as HTMLInputElement
 
   const getTypeJSON = {
     doc: {type: "docs"},
