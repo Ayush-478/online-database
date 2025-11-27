@@ -12,6 +12,10 @@ export default function Form(props : any) {
   const [formOutput, setFormOutput] = useState(null)
 
   async function handleSubmit(){      //HANDLE FORM VALIDATION
+    if(!nameRef.current || !passRef.current){
+      setFormOutput("null is not a valid input")
+      return
+    }
     let response = await Authentication({username : nameRef.current!.value, pass : passRef.current!.value}, props.context)
     setFormOutput(response.message)
     if (response.ok){
