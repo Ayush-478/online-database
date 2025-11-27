@@ -129,9 +129,9 @@ export default function AddNew({ setReload, relativePath} : ChildProps ){
   function handleNewFile(){}
   return(
     <>
-      <Button onClick={()=>{if(uploadFile.current){uploadFile.current.click()}}} className="w-[98%] font-semibold" variant="" >Upload File</Button>
-      <input ref={uploadFile} type="file" onChange={(e)=>{handleFileUpload(e)}} className="hidden" variant="" ></input>
-    <Button className="w-[98%] font-semibold" variant="">
+      <Button onClick={()=>{if(uploadFile.current){uploadFile.current.click()}}} className="w-[98%] font-semibold" variant ="default" >Upload File</Button>
+      <input ref={uploadFile} type="file" onChange={(e)=>{handleFileUpload(e)}} className="hidden" variant="default" ></input>
+    <Button className="w-[98%] font-semibold" variant="default">
       <DropdownMenu>
         <DropdownMenuTrigger className= "" onClick = {handleNewFile}>New File</DropdownMenuTrigger>
         <DropdownMenuContent>
@@ -140,7 +140,7 @@ export default function AddNew({ setReload, relativePath} : ChildProps ){
         </DropdownMenuContent>
       </DropdownMenu>
     </Button>
-    <Button onClick={handleNewFolder} className="w-[98%] font-semibold" variant="" >New Folder</Button>
+    <Button onClick={handleNewFolder} className="w-[98%] font-semibold" variant="default" >New Folder</Button>
     </>
   )
 }
