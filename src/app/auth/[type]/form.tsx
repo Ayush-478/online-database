@@ -13,11 +13,11 @@ export default function Form(props : any) {
 
   async function handleSubmit(){      //HANDLE FORM VALIDATION
     if(!nameRef.current || !passRef.current){
-      setFormOutput("null is not a valid input")
+      setFormOutput(p => "null is not a valid input")
       return
     }
     let response = await Authentication({username : nameRef.current!.value, pass : passRef.current!.value}, props.context)
-    setFormOutput(response.message)
+    setFormOutput(p => response.message)
     if (response.ok){
       redirect('../../../', RedirectType.push)
     }
