@@ -1,7 +1,7 @@
 
 import {promises as fs} from 'fs'
 import {existsSync} from 'fs'
-import getUser from '../auth/[type]/getCookie.tsx'
+import getUser from '../auth/[type]/getCookie'
 import { createClient } from '@supabase/supabase-js'
 
 export default function CrudForm(){
@@ -10,7 +10,7 @@ export default function CrudForm(){
   const supabase = createClient('your_project_url', 'your_supabase_api_key')
 
   // Upload file using standard upload
-  async function uploadFile(file) {
+  async function uploadFile(file : any) {
     const { data, error } = await supabase.storage.from('bucket_name').upload('file_path', file)
     if (error) {
       // Handle error
@@ -18,7 +18,7 @@ export default function CrudForm(){
       // Handle success
     }
   }
-  async function action(formData){
+  async function action(formData : any){
     "use server";
     const file = formData.get("file") as File
     console.log(file)
