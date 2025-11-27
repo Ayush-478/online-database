@@ -97,6 +97,9 @@ export default function AddNew({ setReload, relativePath} : ChildProps ){
       const {data : {user}} = await supabase.auth.getUser()
       const fileName = file.name
       console.log(fileName)
+      if(!user){
+        throw new Error("User error")
+      }
       let dirPath = (relativePath == "/") ? (user.id + "/" + fileName) : (user.id + relativePath + "/" + fileName)
 
       const { data, error } = await supabase.storage.from('user-data').upload(dirPath, file)
