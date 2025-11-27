@@ -121,7 +121,7 @@ export default function FileManager({reload, setReload, relativePath, setRelativ
   },[allFiles, selectedArray])
   
   async function handleDelete(e : React.MouseEvent<HTMLButtonElement>){
-    let location = e.target.dataset.path
+    let location = e.currentTarget.dataset.path
     let jwt = await getJWT()
     let response = await fetch(`http://localhost:5000/crud/`, {
     body: JSON.stringify({ location : location }),
@@ -138,14 +138,14 @@ export default function FileManager({reload, setReload, relativePath, setRelativ
   }
 
   function handleUnselect(e : React.MouseEvent<HTMLDivElement>){
-    if (e.target.dataset.name == "FileManager"){
+    if (e.currentTarget.dataset.name == "FileManager"){
       setSelectedArray(p => [])
       offlineReload(e => e+1)
     }
   }
 
   function handleSelected(e : React.MouseEvent<HTMLDivElement>){
-    let name = e.target.dataset.name
+    let name = e.currentTarget.dataset.name
     let index = selectedArray.indexOf(name)
     if(index > -1){
       setSelectedArray(p => p.filter((e,i) => i != index))
@@ -156,8 +156,8 @@ export default function FileManager({reload, setReload, relativePath, setRelativ
   }
   
   async function handledDoubleClick(e : React.MouseEvent<HTMLDivElement>){
-    let name = e.target.dataset.name
-    let location = e.target.dataset.path
+    let name = e.currentTarget.dataset.name
+    let location = e.currentTarget.dataset.path
     //FIGURE OUT NAMING INCONSISTENCIES
     if (name.indexOf(".") < 0){
       setRelativePath(e => path.join(e, location))
