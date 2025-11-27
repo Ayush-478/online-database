@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from 'react'
-import NavMenu from './navmenu.tsx'
-import FileTree from './filetreeSidebar.tsx'
-import Explorer from './explorer.tsx'
+import NavMenu from './navmenu'
+import FileTree from './filetreeSidebar'
+import Explorer from './explorer'
 
 export default function Dashoard(){
   const [query, setQuery] = useState("")
