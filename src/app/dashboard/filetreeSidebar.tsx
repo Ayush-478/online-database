@@ -2,7 +2,7 @@
 
 import {useState, useRef, useEffect} from 'react'
 import folderIcon from '../../../public/icons/folder-alt-svgrepo-com.svg'
-import getFileTree from './fileTreeAPI.tsx'
+import getFileTree from './fileTreeAPI'
 import Image from 'next/image'
 
 const sampleJson = {
@@ -46,7 +46,7 @@ export default function FileTree() {
     })()
   },[])
 
-  function newFolder(name, i){
+  function newFolder(name : string, i : any){
     return(
       <button key={i} data-index={name} onClick={swtichExpand} className="bg-muted flex relative rounded px-[0.3rem] py-[0.2rem] mb-[0.3rem] font-mono text-sm font-semibold hover:underline">
         <Image src={folderIcon} style={{height: "1rem"},{width: "1rem"}} className="mr-2" ></Image>
@@ -55,7 +55,7 @@ export default function FileTree() {
     )
   }
 
-  function newFile(name, i){
+  function newFile(name : string, i : any){
    return(
       <button key={i} className="text-muted-foreground rounded bg-gray-800 mb-[0.3rem] inline text-sm cursor-pointer px-[0.3rem] py-[0.2rem] font-mono hover:underline">
         -{name}
@@ -63,7 +63,7 @@ export default function FileTree() {
     )
   }
 
-  function swtichExpand(ev){
+  function swtichExpand(ev : any){
     let index = ev.currentTarget.dataset.index
     if(fileJson.current[index].expand){
       fileJson.current[index].expand = false
@@ -73,7 +73,7 @@ export default function FileTree() {
     renderTree(fileJson.current)
   }
 
-  function renderTree(treeJson) {
+  function renderTree(treeJson : any) {
     let skip = [];
     setListItems([])
     function skipSubDirectories(root){
@@ -84,7 +84,7 @@ export default function FileTree() {
       }
       skip.push(root)
     }
-    Object.keys(treeJson).forEach((key, i) => {
+    Object.keys(treeJson).forEach((key : string, i : number) => {
       if (!skip.find((item) => item == treeJson[key].index)) {
         if (treeJson[key].isFolder) {
           if (!treeJson[key].expand) {
