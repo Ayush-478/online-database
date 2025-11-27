@@ -2,14 +2,12 @@
 import "../../globals.css";
 import Form from "./form";
 import Link from "next/link";
-import { useSearchParams } from 'next/navigation'
-import {sendContext} from './http'
-let context;
+import { useSearchParams } from 'next/navigation';
 
 export default async function Interface({params,}:{params : Promise<{ type : string}>}) {
 
-  let context
-  const type = (await params).type
+  let context : "Login" | "Register" | null = null
+  const type : "login" | "register" = (await params).type
   if(type == 'login'){
     context = "Login"
   }else if(type == 'register'){
