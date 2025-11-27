@@ -72,7 +72,7 @@ export default function FileManager({reload, setReload, relativePath, setRelativ
   const [allFiles, setAllFiles] = useState<FileItem[]>([])
   const [renderedFiles, setRenderedFiles] = useState<FileItem[]>([])
   const [, offlineReload] = useState(0)
-  const [selectedArray, setSelectedArray] = useState<FileItem[]>([])
+  const [selectedArray, setSelectedArray] = useState<string>([])
 
   useEffect(()=>{
     (async()=>{
