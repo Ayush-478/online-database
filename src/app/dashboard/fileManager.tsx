@@ -202,14 +202,13 @@ export default function FileManager({reload, setReload, relativePath, setRelativ
   }
 
   function makeFolderElement(type : string, name : string, location : string, hidden : boolean){
-    if(!type || !name || !location || !hidden){
+    if(!type || !name || !location){
       return
     }
-    let icon : keyof typeof getTypeIcon | null = null;
-    Object.keys(getTypeIcon).forEach((key, i) => {
-      if(key===type){
-        icon = getTypeIcon[key].icon
-      }
+    let icon : string | null = null;
+    if (type in getTypeIcon) {
+      icon = getTypeIcon[type as keyof typeof getTypeIcon].icon;
+    }
     })
 
     return(
@@ -241,16 +240,14 @@ export default function FileManager({reload, setReload, relativePath, setRelativ
   )}
 
   async function makeFileElement(type : string, name : string, location : string){
-    if(!type || !name || !location || !hidden){
+    if(!type || !name || !location){
       return
     }
-    let icon : keyof typeof getTypeIcon | null = null;
+    let icon : string | null = null;
+    if (type in getTypeIcon) {
+      icon = getTypeIcon[type as keyof typeof getTypeIcon].icon;
+    }
     let {image} = await getImage(location)
-    Object.keys(getTypeIcon).forEach((key, i) => {
-      if(key===type){
-        icon = getTypeIcon[key].icon
-      }
-    })
     return(
       <div className = "TRANSPARENT-COVER rounded-sm hover:brightness-120" data-name = {name} data-path = {location} onDoubleClick= {(e) => {handledDoubleClick(e)}} onClick = {(e) => handleSelected(e)} >
       <Card className = {selectedArray.includes(name) ? "Card bg-blue-700" : "Card items-center gap-0"} >
