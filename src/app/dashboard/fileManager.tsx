@@ -270,7 +270,7 @@ export default function FileManager({reload, setReload, relativePath, setRelativ
             </DropdownMenuContent>
           </DropdownMenu>
         </CardHeader>
-        <Image src={image} alt={someimagehere} height={100} width={100} className="THUMBNAIL items-center justify-center bg-black h-[75%] w-[95%] relative top-[0.2rem] rounded-lg"></Image>
+        <Image src={image} alt={"someimagehere"} height={100} width={100} className="THUMBNAIL items-center justify-center bg-black h-[75%] w-[95%] relative top-[0.2rem] rounded-lg"></Image>
       </Card>
       </div>
   )}
