@@ -31,7 +31,6 @@
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "tailwind-merge": "3.3.1",
-    "twind": "^0.16.19",
     "validator": "13.15.15"
   },
   "devDependencies": {
