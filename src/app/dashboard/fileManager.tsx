@@ -175,7 +175,9 @@ export default function FileManager({reload, setReload, relativePath, setRelativ
     if(!location){
       return
     }
-    let {image, bitmap} = await getImage(location)
+    let obj = await getImage(location)
+    if(!obj){return}
+    let {image, bitmap} = obj
     displayImage.current = <img src={image} width={bitmap.width} height={bitmap.height} className="z-5"></img>
     setDisplayMode(true)
   }
