@@ -188,7 +188,9 @@ export default function FileManager({reload, setReload, relativePath, setRelativ
       return
     }
     const { data : { user } } = await supabase.auth.getUser()
+    if(!user){return}
     const { data, error } = await supabase.storage.from('user-data').download(`${user.id}/${location}`)
+    if(!data){return}
     const bitmap = await createImageBitmap(data)
     const image = URL.createObjectURL(data)
     return {image, bitmap}
