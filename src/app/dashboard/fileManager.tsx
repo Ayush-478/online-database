@@ -214,7 +214,7 @@ export default function FileManager({reload, setReload, relativePath, setRelativ
       <Card className = {selectedArray.includes(name) ? "Card bg-blue-700" : "Card"} >
         <CardHeader className="CardHeader">
           <div>
-            <Image src={icon} style={{height:"1.6rem"},{width:"1.6rem"}} ></Image>
+            <Image src={icon} alt={someimagehere} style={{height:"1.6rem"},{width:"1.6rem"}} ></Image>
             <h4>{name}</h4>
           </div>
           <DropdownMenu>
@@ -270,7 +270,7 @@ export default function FileManager({reload, setReload, relativePath, setRelativ
             </DropdownMenuContent>
           </DropdownMenu>
         </CardHeader>
-        <Image src={image} height={100} width={100} className="THUMBNAIL items-center justify-center bg-black h-[75%] w-[95%] relative top-[0.2rem] rounded-lg"></Image>
+        <Image src={image} alt={someimagehere} height={100} width={100} className="THUMBNAIL items-center justify-center bg-black h-[75%] w-[95%] relative top-[0.2rem] rounded-lg"></Image>
       </Card>
       </div>
   )}
