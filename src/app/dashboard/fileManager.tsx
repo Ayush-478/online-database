@@ -70,7 +70,7 @@ export default function FileManager({reload, setReload, relativePath, setRelativ
   const [displayMode, setDisplayMode] = useState(false)
   const displayImage = useRef<HTMLImageElement | null>(null) 
   const [allFiles, setAllFiles] = useState<FileItem[]>([])
-  const [renderedFiles, setRenderedFiles] = useState<(JSX.Element, string)[]>([])
+  const [renderedFiles, setRenderedFiles] = useState<(JSX.Element | undefined)[]>([])
   const [, offlineReload] = useState(0)
   const [selectedArray, setSelectedArray] = useState<string[]>([])
 
