@@ -209,8 +209,6 @@ export default function FileManager({reload, setReload, relativePath, setRelativ
     if (type in getTypeIcon) {
       icon = getTypeIcon[type as keyof typeof getTypeIcon].icon;
     }
-    })
-
     return(
       <div className = {(hidden) ? "TRANSPARENT-COVER rounded-sm hover:brightness-120 hidden" : "TRANSPARENT-COVER rounded-sm hover:brightness-120"} data-name = {name} data-path = {location} onDoubleClick= {(e) => {handledDoubleClick(e)}} onClick = {(e) => handleSelected(e)} >
       <Card className = {selectedArray.includes(name) ? "Card bg-blue-700" : "Card"} >
