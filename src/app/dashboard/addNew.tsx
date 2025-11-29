@@ -72,7 +72,7 @@ export default function AddNew({ setReload, relativePath} : ChildProps ){
 
   async function handleNewFolder(){
     const jwt = await getJWT()
-    let response = await fetch("http://localhost:5000/crud/newfolder", {
+    let response = await fetch("https://server-for-online-database.onrender.com/crud/newfolder", {
     method : "POST",
     body: JSON.stringify({location : relativePath}),
     headers: {
@@ -105,7 +105,7 @@ export default function AddNew({ setReload, relativePath} : ChildProps ){
       const { data, error } = await supabase.storage.from('user-data').upload(dirPath, file)
       if(error){throw new Error(error.message)}
 
-      const res = await fetch("http://localhost:5000/crud/newfile", {
+      const res = await fetch("https://server-for-online-database.onrender.com/crud/newfile", {
         method : "POST",
         body: JSON.stringify({name : file.name, size : file.size, type : getTypeJSON[extension].type, location : relativePath}),
         headers: {

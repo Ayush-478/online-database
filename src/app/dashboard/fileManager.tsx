@@ -78,7 +78,7 @@ export default function FileManager({reload, setReload, relativePath, setRelativ
     (async()=>{
       if(reload){
         let jwt = await getJWT()
-        let response = await fetch("http://localhost:5000/crud/", {
+        let response = await fetch("https://server-for-online-database.onrender.com/crud/", {
         method : "POST",
         body: JSON.stringify({ location : relativePath}),
         headers: {
@@ -123,7 +123,7 @@ export default function FileManager({reload, setReload, relativePath, setRelativ
   async function handleDelete(e : React.MouseEvent<HTMLDivElement>){
     let location = e.currentTarget.dataset.path
     let jwt = await getJWT()
-    let response = await fetch(`http://localhost:5000/crud/`, {
+    let response = await fetch(`https://server-for-online-database.onrender.com/crud/`, {
     body: JSON.stringify({ location : location }),
     method : "DELETE",
     headers: {

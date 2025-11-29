@@ -77,7 +77,7 @@ export default function Home() {
           setUserInfo({loggedIn : true, id : user.id})
           if(user && user.email_confirmed_at){
             const jwt = await getJWT()
-            let res = await fetch('http://localhost:5000/users/login',{
+            let res = await fetch('https://server-for-online-database.onrender.com/users/login',{
               method : "GET",
               headers: {
                 "Authorization" : `Bearer ${jwt}`,
@@ -85,7 +85,7 @@ export default function Home() {
                 "Accept" : "application/json"
               },
             })
-            let cat = await fetch(`http://localhost:5000/users/cat`,{
+            let cat = await fetch(`https://server-for-online-database.onrender.com/users/cat`,{
               method : "GET",
               headers: {
                 "Authorization" : `Bearer ${jwt}`,

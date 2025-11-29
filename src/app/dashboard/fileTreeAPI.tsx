@@ -2,7 +2,7 @@ import getJWT from './getJWT'
 
 export default async function getFileTree(){
   const jwt = await getJWT()
-  let response = await fetch(`http://localhost:5000/crud/json`, {
+  let response = await fetch(`https://server-for-online-database.onrender.com/crud/json`, {
     method : "GET",
     headers: {
       "Authorization" : `Bearer ${jwt}`,
