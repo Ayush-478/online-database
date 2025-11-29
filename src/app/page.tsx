@@ -47,19 +47,20 @@ export default function Home() {
   }
 
   async function submitForm(){      //HANDLE FORM VALIDATION
-    if(!formInfo.current || !email.current || !password.current){return}
+    if(!formInfo.current || !email.current || !password.current){throw new Error("Invalid Input(s)")}
     let error : any|null = null
     try{
       //let response = await Authentication({username : username.current.value, pass : password.current.value}, auth)
       if(auth == "Registration"){
-        formInfo.current.textContent="Adding User, Please wait.."
+        formInfo.current.textContent="Adding User, please check email for confirmation."
         const { data, error } = await supabase.auth.signUp({
           email: email.current.value,
           password: password.current.value,
         })
         if(!error){
-          redirect('../dashboard/', RedirectType.push)
+          redirect('https://online-database-rho.vercel.app/dashboard', RedirectType.push)
         }
+      //LOGIN STARTS HERE---------
       }else if(auth == "Login"){
         formInfo.current.textContent="Logging User, Please wait.."
         const { data, error } = await supabase.auth.signInWithPassword({
