@@ -1,4 +1,5 @@
 "use client"
+import { useRouter } from 'next/navigation'
 import { Input } from "@/components/ui/input"
 import getJWT from './dashboard/getJWT'
 import { redirect, RedirectType } from 'next/navigation'
@@ -15,6 +16,7 @@ export default function Home() {
   const formInfo = useRef<HTMLDivElement|null>(null)
   const blurClass = "transition-color duration-1500 hover:bg-black/60 !block"
   const formClass = "absolute inset-0 m-auto flex items-center justify-center top-[-5%] bg-neutral-900 h-[35vh] w-[27vw] scale-100 transition-transform rounded-3xl duration-300 "
+  const router = useRouter()
 
   //CHECKING IF LOGGED IN
   useEffect(()=>{
@@ -58,7 +60,7 @@ export default function Home() {
           password: password.current.value,
         })
         if(!error){
-          redirect('https://online-database-rho.vercel.app/dashboard', RedirectType.push)
+          router.push('/dashboard')
         }
       //LOGIN STARTS HERE---------
       }else if(auth == "Login"){
