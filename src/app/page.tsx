@@ -1,7 +1,7 @@
 "use client"
 import { Input } from "@/components/ui/input"
 import getJWT from './dashboard/getJWT'
-import { redirect } from 'next/navigation'
+import { redirect, RedirectType } from 'next/navigation'
 import { Button } from "@/components/ui/button"
 import Landing from './landing'
 import { useState,useRef,useEffect } from 'react'
@@ -57,8 +57,9 @@ export default function Home() {
           email: email.current.value,
           password: password.current.value,
         })
+        redirect('https://online-database-rho.vercel.app/' , RedirectType.push)
         if(!error){
-          redirect('https://online-database-rho.vercel.app/')
+          redirect('https://online-database-rho.vercel.app/' , RedirectType.push)
         }
       //LOGIN STARTS HERE---------
       }else if(auth == "Login"){
