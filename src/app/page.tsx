@@ -7,11 +7,6 @@ import Landing from './landing'
 import { useState,useRef,useEffect } from 'react'
 import supabase from '../config/supabase.js'
 
-export const metadata = {
-  title: 'Raft Cloud',
-  description: 'Cloud Storage database system',
-};
-
 export default function Home() {
   const [auth, setAuth] = useState<string|boolean>(false)
   const [userInfo, setUserInfo] = useState<{[key : string]:any}>({loggedIn : false, id : null})

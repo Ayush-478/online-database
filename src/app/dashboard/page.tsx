@@ -12,7 +12,6 @@ export default function Dashoard(){
   const [reloadFileTree, setReloadFileTree] = useState(false)
   return(
   <div className="flex flex-col dark bg-background text-foreground h-lvh w-lvw">
-      <Head><title>Dashoard - Raft</title></Head>
       <NavMenu setQuery = {setQuery} query = {query}></NavMenu>
       <div className="main flex h-[91%] w-lvw">
         <FileTree></FileTree>
